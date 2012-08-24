@@ -9,9 +9,6 @@ cmake_minimum_required ( VERSION 2.8 )
 include ( cmake/dist.cmake )
 include ( lua )
 
-# No default driver to install
-
-# Install  documentation
-install_data ( README )
-install_doc ( doc/ )
-install_test ( tests/ )
+find_package ( Firebird REQUIRED )
+include_directories ( ${FIREBIRD_INCLUDE_DIRECTORIES} src )
+install_lua_module ( firebird src/ls_firebird.c src/luasql.c LINK ${FIREBIRD_LIBRARIES} )
