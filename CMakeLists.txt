@@ -11,4 +11,4 @@ include ( lua )
 
 find_package ( Firebird REQUIRED )
 include_directories ( ${FIREBIRD_INCLUDE_DIRECTORIES} src )
-install_lua_module ( firebird src/ls_firebird.c src/luasql.c LINK ${FIREBIRD_LIBRARIES} )
+install_lua_module ( luasql.firebird src/ls_firebird.c src/luasql.c LINK ${FIREBIRD_LIBRARIES} )
